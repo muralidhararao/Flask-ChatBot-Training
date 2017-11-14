@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+	var message = $('textarea#typetext').val();
+	$('textarea#typetext').val("");
+	$( "#chatdiv" ).append("<p style='text-align:right; background-color:#cccccc;'> You: "+ message +"</p>");
+	//$( "#chatdiv" ).append("<p style='text-align:left; background-color:#98ff91;'>Service: "+ message +"</p>");
+	
+        $.get("http://localhost:5002/get/"+message, function(data, status){
+            //alert("Data: " + data + "\nStatus: " + status);
+			$( "#chatdiv" ).append("<p style='text-align:left; background-color:#98ff91;'> "+ data +"</p>");
+        });
+    });
+});
+</script>
+</head>
+<body>
+<div style="overflow:auto; width:400px;height:400px; background-color:#ededed; border-style: solid;" id="chatdiv" >
+
+</div>
+
+
+<textarea id="typetext" style="width:300px; padding-top:10px; margin-top:10px;"></textarea>
+<button>send</button>
+
+</body>
+</html>
