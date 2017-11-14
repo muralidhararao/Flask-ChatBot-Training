@@ -4,11 +4,6 @@ from chatterbot.trainers import ChatterBotCorpusTrainer, ListTrainer
 
 app = Flask(__name__)
 
-#english_bot = ChatBot("English Bot", storage_adapter="chatterbot.storage.SQLStorageAdapter")
-
-#english_bot.set_trainer(ChatterBotCorpusTrainer)
-#english_bot.train("chatterbot.corpus.english")
-
 english_bot = ChatBot("Rao")
 conversation = [
     "Hello",
